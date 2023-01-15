@@ -13,4 +13,10 @@
 
         @RobertC 1/15/2023
     */
+
+    function weather_abilitie(){
+
+    }
+
+    weather_abilitie();
 ?>
