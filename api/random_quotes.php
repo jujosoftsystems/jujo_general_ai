@@ -1,0 +1,5 @@
+<?php
+    /*
+        Random quotes API 
+    */
+?>
