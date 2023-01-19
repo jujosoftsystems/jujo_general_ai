@@ -8,7 +8,6 @@
 
     function count_abilitie($start_value, $end_value){
 
-        // Check for user input errors
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
 
