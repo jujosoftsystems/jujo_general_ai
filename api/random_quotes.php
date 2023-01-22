@@ -3,6 +3,7 @@
         Random quotes API 
     */
     function random_quotes_abilitie(){
+        
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
         
