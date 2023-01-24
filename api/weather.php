@@ -2,21 +2,40 @@
     /*
         Weather API 
 
-        Use to ge actual data from
-            --https://api.weather.gov/points/{latitude},{longitude}
-            For example:
-                https://api.weather.gov/points/39.7456,-97.0892
-
-        Need other API to get latitude, longitude from user input (state, city or town name!) to inject that into https://api.weather.gov/points/{latitude},{longitude}
-
-        https://geocode.maps.co/search?q=Austin   <---- This APi might help to get latitude and longitude!
-
         @RobertC 1/15/2023
     */
 
-    function weather_abilitie(){
+    $param_1 = $_GET['place'];
+
+    function weather_abilitie($place_value){
+
+        $error_msg = "None all good"; // <-- default
+        $result = ""; // <-- default
+
+        // Need to make sure $place_value is a string not int before passing to the first API!
+
+        // Call first API and get parameters need it for second API
+        $response_1 = file_get_contents('https://geocode.maps.co/search?q='.$place_value);
+        $api_1_result = json_decode($response_1, true);
+        $lat_param = $api_1_result[0]["lat"];
+        $lon_param = $api_1_result[0]["lon"];
+
+        // "astro", "civil", "civillight"
+        $response_2 = file_get_contents('https://www.7timer.info/bin/civil.php?lon='.$lon_param.'&lat='.$lat_param.'&ac=0&unit=metric&output=json');
+        $api_2_result = json_decode($response_2, true);
+        
+        // Array for API!
+        $weather_abilitie_response = array(
+            "api_id"=> "3",
+            "result"=> $api_2_result,
+            "error"=> $error_msg
+        );
+
+        // JSON array data
+        header("Content-Type: application/json");
+        print(json_encode($weather_abilitie_response, JSON_PRETTY_PRINT));
 
     }
 
-    weather_abilitie();
+    weather_abilitie($param_1);
 ?>
