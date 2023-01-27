@@ -21,13 +21,20 @@
         $lon_param = $api_1_result[0]["lon"];
 
         // "astro", "civil", "civillight"
-        $response_2 = file_get_contents('https://www.7timer.info/bin/civil.php?lon='.$lon_param.'&lat='.$lat_param.'&ac=0&unit=metric&output=json');
+        // more info on this API ---> https://github.com/Yeqzids/7timer-issues/wiki/Wiki
+        $response_2 = file_get_contents('https://www.7timer.info/bin/civillight.php?lon='.$lon_param.'&lat='.$lat_param.'&ac=0&unit=metric&output=json');
         $api_2_result = json_decode($response_2, true);
+/*
+        foreach ($api_2_result as $index) {
+            $result = $index[2]." ";
+        }
+*/     
+        $result = $api_2_result["dataseries"][0]["weather"];
         
         // Array for API!
         $weather_abilitie_response = array(
             "api_id"=> "3",
-            "result"=> $api_2_result,
+            "result"=> $result,
             "error"=> $error_msg
         );
 
