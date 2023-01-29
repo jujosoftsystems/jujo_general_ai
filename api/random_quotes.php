@@ -12,19 +12,19 @@
         switch ($rand_quote_num){
             case 1:
                 $result = "A lady's imagination is very rapid; it jumps from admiration to love, from love to matrimony in a moment.  -Jane Austen";
-              break;
+                break;
             case 2:
                 $result = "AI might be superior to humans.";
-              break;
+                break;
             case 3:
                 $result = "Our lives begin to end the day we become silent about things that matter.  -Martin Luther King Jr.";
-              break;
+                break;
             case 4:
                 $result = "Faith is taking the first step even when you can't see the whole staircase.  -Martin Luther King Jr.";
-              break;
+                break;
             case 5:
                 $result = "If you can't explain it to a six year old, you don't understand it yourself.  -Albert Einstein";
-              break;
+                break;
             default:
                 $result = "Sorry Can't think of any quotes right now!";
         }
