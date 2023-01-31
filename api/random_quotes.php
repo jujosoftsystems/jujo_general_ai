@@ -26,7 +26,7 @@
                 $result = "If you can't explain it to a six year old, you don't understand it yourself.  -Albert Einstein";
                 break;
             default:
-                $result = "Sorry Can't think of any quotes right now!";
+                $result = "Sorry can't think of any quotes right now!";
         }
 
         // Array for API!
