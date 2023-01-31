@@ -11,30 +11,92 @@
     function define_weather($weather_value){
 
         switch ($weather_value){
-            case '':
-                $weather_value_define = "";
+            case "clear":
+                $weather_value_define = "Total cloud cover less than 20%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "clearnight":
+            //    $weather_value_define = "Total cloud cover less than 20%";
+            //    break;
+            case "pcloudy":
+                $weather_value_define = "Total cloud cover between 20%-60%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "pcloudynight":
+            //    $weather_value_define = "Total cloud cover between 20%-60%";
+            //    break;
+            case "mcloudy":
+                $weather_value_define = "Total cloud cover between 60%-80%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "mcloudyday":
+            //    $weather_value_define = "Total cloud cover between 60%-80%";
+            //    break;
+            case "cloudy":
+                $weather_value_define = "Total cloud cover over over 80%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "cloudynight":
+            //    $weather_value_define = "Total cloud cover over over 80%";
+            //    break;
+            case "humid":
+                $weather_value_define = "Relative humidity over 90% with total cloud cover less than 60%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "humidnight":
+            //    $weather_value_define = "Relative humidity over 90% with total cloud cover less than 60%";
+            //    break;
+            case "lightrain":
+                $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover more than 80%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "lightrainnight":
+            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover more than 80%";
+            //    break;
+            case "oshower":
+                $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover between 60%-80%";
                 break;
-            case '':
-                $weather_value_define = "";
+            //case "oshowernight":
+            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover between 60%-80%";
+            //    break;
+            case "ishower":
+                $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover less than 60%";
                 break;
+            //case "ishowernight":
+            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover less than 60%";
+            //    break;
+            case "lightsnow":
+                $weather_value_define = "Precipitation rate less than 4mm per hour";
+                break;
+            //case "lightsnownight":
+            //    $weather_value_define = "Precipitation rate less than 4mm per hour";
+            //    break;
+            case "rain":
+                $weather_value_define = "Precipitation rate over 4mm per hour";
+                break;
+            //case "rainnight":
+            //    $weather_value_define = "Precipitation rate over 4mm per hour";
+            //    break;
+            case "snow":
+                $weather_value_define = "Precipitation rate over 4mm per hour";
+                break;
+            //case "snownight":
+            //    $weather_value_define = "Precipitation rate over 4mm per hour";
+            //    break;
+            case "rainsnow":
+                $weather_value_define = "Precipitation type to be ice pellets or freezing rain";
+                break;
+            //case "rainsnownight":
+            //    $weather_value_define = "Precipitation type to be ice pellets or freezing rain";
+            //    break;
+            case "ts":
+                $weather_value_define = "Lifted Index less than -5 with precipitation rate below 4mm per hour";
+                break;
+            //case "tsnight":
+            //    $weather_value_define = "Lifted Index less than -5 with precipitation rate below 4mm per hour";
+            //    break;
+            case "tsrain":
+                $weather_value_define = "Lifted Index less than -5 with precipitation rate over 4mm per hour";
+                break;
+            //case "tsrainnight":
+            //    $weather_value_define = "Lifted Index less than -5 with precipitation rate over 4mm per hour";
+            //    break;
+            default:
+                $weather_value_define = "Sorry can't tell the weather right now!";
         } 
 
         return $weather_value_define;
@@ -68,16 +130,6 @@
                 },
                 "wind10m_max": 3
             -------------------------------------
-            for weather:
-                clear   --->	Total cloud cover less than 20%
-                pcloudy	--->	Total cloud cover between 20%-80%
-                cloudy	--->	Total cloud cover over 80%
-                rain	--->	Rain
-                snow	--->	Snow
-                ts		--->	Thunderstorm
-                tsrain	--->	Thunderstorm with rain
-
-             -------------------------------------
              for temp2m:
                 max ---> 2m max temperature in Censius
                 min ---> 2m min temperature in Censius
@@ -102,11 +154,12 @@
         }
 */     
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
-        
+       
         // Array for API!
         $weather_abilitie_response = array(
             "api_id"=> "3",
             "result"=>  $result,
+            //"result"=>  $api_2_result["dataseries"][0]["weather"],
             "error"=> $error_msg
         );
 
