@@ -112,7 +112,7 @@
         }
 */     
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
-        $temp ="Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." censuis, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." censuis";
+        $temp ="Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." Celsius, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." Celsius";
        
         // Array for API!
         $weather_abilitie_response = array(
