@@ -14,87 +14,45 @@
             case "clear":
                 $weather_value_define = "Total cloud cover less than 20%";
                 break;
-            //case "clearnight":
-            //    $weather_value_define = "Total cloud cover less than 20%";
-            //    break;
             case "pcloudy":
                 $weather_value_define = "Total cloud cover between 20%-60%";
                 break;
-            //case "pcloudynight":
-            //    $weather_value_define = "Total cloud cover between 20%-60%";
-            //    break;
             case "mcloudy":
                 $weather_value_define = "Total cloud cover between 60%-80%";
                 break;
-            //case "mcloudyday":
-            //    $weather_value_define = "Total cloud cover between 60%-80%";
-            //    break;
             case "cloudy":
                 $weather_value_define = "Total cloud cover over over 80%";
                 break;
-            //case "cloudynight":
-            //    $weather_value_define = "Total cloud cover over over 80%";
-            //    break;
             case "humid":
                 $weather_value_define = "Relative humidity over 90% with total cloud cover less than 60%";
                 break;
-            //case "humidnight":
-            //    $weather_value_define = "Relative humidity over 90% with total cloud cover less than 60%";
-            //    break;
             case "lightrain":
                 $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover more than 80%";
                 break;
-            //case "lightrainnight":
-            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover more than 80%";
-            //    break;
             case "oshower":
                 $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover between 60%-80%";
                 break;
-            //case "oshowernight":
-            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover between 60%-80%";
-            //    break;
             case "ishower":
                 $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover less than 60%";
                 break;
-            //case "ishowernight":
-            //    $weather_value_define = "Precipitation rate less than 4mm per hour with total cloud cover less than 60%";
-            //    break;
             case "lightsnow":
                 $weather_value_define = "Precipitation rate less than 4mm per hour";
                 break;
-            //case "lightsnownight":
-            //    $weather_value_define = "Precipitation rate less than 4mm per hour";
-            //    break;
             case "rain":
                 $weather_value_define = "Precipitation rate over 4mm per hour";
                 break;
-            //case "rainnight":
-            //    $weather_value_define = "Precipitation rate over 4mm per hour";
-            //    break;
             case "snow":
                 $weather_value_define = "Precipitation rate over 4mm per hour";
                 break;
-            //case "snownight":
-            //    $weather_value_define = "Precipitation rate over 4mm per hour";
-            //    break;
             case "rainsnow":
                 $weather_value_define = "Precipitation type to be ice pellets or freezing rain";
                 break;
-            //case "rainsnownight":
-            //    $weather_value_define = "Precipitation type to be ice pellets or freezing rain";
-            //    break;
             case "ts":
                 $weather_value_define = "Lifted Index less than -5 with precipitation rate below 4mm per hour";
                 break;
-            //case "tsnight":
-            //    $weather_value_define = "Lifted Index less than -5 with precipitation rate below 4mm per hour";
-            //    break;
             case "tsrain":
                 $weather_value_define = "Lifted Index less than -5 with precipitation rate over 4mm per hour";
                 break;
-            //case "tsrainnight":
-            //    $weather_value_define = "Lifted Index less than -5 with precipitation rate over 4mm per hour";
-            //    break;
             default:
                 $weather_value_define = "Sorry can't tell the weather right now!";
         } 
