@@ -89,8 +89,8 @@
                 "wind10m_max": 3
             -------------------------------------
              for temp2m:
-                max ---> 2m max temperature in Censius
-                min ---> 2m min temperature in Censius
+                max ---> 2m max temperature in Celsius
+                min ---> 2m min temperature in Celsius
 
              -------------------------------------
              for wind10m_max:
@@ -112,12 +112,12 @@
         }
 */     
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
+        $temp ="Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." censuis, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." censuis";
        
         // Array for API!
         $weather_abilitie_response = array(
             "api_id"=> "3",
-            "result"=>  $result,
-            //"result"=>  $api_2_result["dataseries"][0]["weather"],
+            "result"=>   $temp,
             "error"=> $error_msg
         );
 
