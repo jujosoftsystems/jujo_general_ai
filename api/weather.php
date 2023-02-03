@@ -112,7 +112,14 @@
         }
 */     
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
-        $temp ="Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." Celsius, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." Celsius";
+        /*
+            Formula to convert to Celsius to degrees Fahrenheit
+
+            T(°C) × 1.8 + 32
+
+        */
+        $temp = "Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." Celsius, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." Celsius";
+
        
         // Array for API!
         $weather_abilitie_response = array(
