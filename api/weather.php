@@ -87,11 +87,6 @@
                     "min": 7
                 },
                 "wind10m_max": 3
-            -------------------------------------
-             for temp2m:
-                max ---> 2m max temperature in Celsius
-                min ---> 2m min temperature in Celsius
-
              -------------------------------------
              for wind10m_max:
                 1	--->    Below 0.3m/s (calm)
@@ -113,18 +108,20 @@
 */     
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
         /*
-            Formula to convert to Celsius to degrees Fahrenheit
+            Formula to convert to celsius to degrees fahrenheit
 
             T(°C) × 1.8 + 32
 
         */
-        $temp = "Max: ".$api_2_result["dataseries"][0]["temp2m"]["max"]." Celsius, Min: ".$api_2_result["dataseries"][0]["temp2m"]["min"]." Celsius";
-
-       
+        // Convert celsuis to fahrenheit!
+        $cel_to_fah_max = $api_2_result["dataseries"][0]["temp2m"]["max"] * 1.8 + 32;
+        $cel_to_fah_min = $api_2_result["dataseries"][0]["temp2m"]["min"] * 1.8 + 32;
+        $temp = "With a temperature of a max: ".$cel_to_fah_max." fahrenheit and minimum: ".$cel_to_fah_min." fahrenheit";
+      
         // Array for API!
         $weather_abilitie_response = array(
             "api_id"=> "3",
-            "result"=>   $temp,
+            "result"=> $temp,
             "error"=> $error_msg
         );
 
