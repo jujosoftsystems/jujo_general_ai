@@ -60,6 +60,39 @@
         return $weather_value_define;
     }
 
+    function define_wind($wind_value){
+
+        switch ($wind_value){
+            case 1:
+                $ $wind_value_define = "";
+                break;
+            case 2:
+                $ $wind_value_define = "";
+                break;
+            case 3:
+                $ $wind_value_define = "";
+                break;
+            case 4:
+                $ $wind_value_define = "";
+                break;
+            case 5:
+                $ $wind_value_define = "";
+                break;
+            case 6:
+                $ $wind_value_define = "";
+                break;
+            case 7:
+                $ $wind_value_define = "";
+                break;
+            case 8:
+                $ $wind_value_define = "";
+                break;
+        }
+
+        return $wind_value_define;
+
+    }
+
     function weather_abilitie($place_value){
 
         $error_msg = "None all good"; // <-- default
@@ -107,12 +140,6 @@
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
 */     
 
-        /*
-            Formula to convert to celsius to degrees fahrenheit
-
-            T(°C) × 1.8 + 32
-
-        */
         // Convert celsuis to fahrenheit!
         $cel_to_fah_max = $api_2_result["dataseries"][0]["temp2m"]["max"] * 1.8 + 32;
         $cel_to_fah_min = $api_2_result["dataseries"][0]["temp2m"]["min"] * 1.8 + 32;
