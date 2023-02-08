@@ -99,14 +99,14 @@
                 8	--->    Over 32.6m/s (hurricane)
 
         */
-
-
 /*
         foreach ($api_2_result as $index) {
             $result = $index[2]." ";
         }
-*/     
+
         $result = define_weather($api_2_result["dataseries"][0]["weather"]);
+*/     
+
         /*
             Formula to convert to celsius to degrees fahrenheit
 
@@ -116,12 +116,13 @@
         // Convert celsuis to fahrenheit!
         $cel_to_fah_max = $api_2_result["dataseries"][0]["temp2m"]["max"] * 1.8 + 32;
         $cel_to_fah_min = $api_2_result["dataseries"][0]["temp2m"]["min"] * 1.8 + 32;
-        $temp = "With a temperature of a max: ".$cel_to_fah_max." fahrenheit and minimum: ".$cel_to_fah_min." fahrenheit";
+        $temp = "and a temperature of a max of ".$cel_to_fah_max." fahrenheit and a minimum of ".$cel_to_fah_min." fahrenheit";
+        $weather_full_result = define_weather($api_2_result["dataseries"][0]["weather"])." ".$temp;
       
         // Array for API!
         $weather_abilitie_response = array(
             "api_id"=> "3",
-            "result"=> $temp,
+            "result"=> $weather_full_result,
             "error"=> $error_msg
         );
 
