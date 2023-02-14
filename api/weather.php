@@ -64,28 +64,28 @@
 
         switch ($wind_value){
             case 1:
-                $ $wind_value_define = "Below 0.3m/s (calm)";
+                $wind_value_define = "Below 0.3m/s (calm)";
                 break;
             case 2:
                 $ $wind_value_define = " 0.3-3.4m/s (light)";
                 break;
             case 3:
-                $ $wind_value_define = "3.4-8.0m/s (moderate)";
+                 $wind_value_define = "3.4-8.0m/s (moderate)";
                 break;
             case 4:
-                $ $wind_value_define = " 8.0-10.8m/s (fresh)";
+                $wind_value_define = " 8.0-10.8m/s (fresh)";
                 break;
             case 5:
-                $ $wind_value_define = "10.8-17.2m/s (strong)";
+                $wind_value_define = "10.8-17.2m/s (strong)";
                 break;
             case 6:
-                $ $wind_value_define = "17.2-24.5m/s (gale)";
+                $wind_value_define = "17.2-24.5m/s (gale)";
                 break;
             case 7:
-                $ $wind_value_define = "24.5-32.6m/s (storm)";
+                $wind_value_define = "24.5-32.6m/s (storm)";
                 break;
             case 8:
-                $ $wind_value_define = "Over 32.6m/s (hurricane)";
+                $wind_value_define = "Over 32.6m/s (hurricane)";
                 break;
         }
 
@@ -144,7 +144,7 @@
         $cel_to_fah_max = $api_2_result["dataseries"][0]["temp2m"]["max"] * 1.8 + 32;
         $cel_to_fah_min = $api_2_result["dataseries"][0]["temp2m"]["min"] * 1.8 + 32;
         $temp = "and a temperature of a max of ".$cel_to_fah_max." fahrenheit and a minimum of ".$cel_to_fah_min." fahrenheit";
-        $weather_full_result = define_weather($api_2_result["dataseries"][0]["weather"])." ".$temp;
+        $weather_full_result = define_weather($api_2_result["dataseries"][0]["weather"])." ".$temp." and wind ".define_wind($api_2_result["dataseries"][0]["wind10m_max"]);
       
         // Array for API!
         $weather_abilitie_response = array(
