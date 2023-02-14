@@ -67,7 +67,7 @@
                 $wind_value_define = "Below 0.3m/s (calm)";
                 break;
             case 2:
-                $ $wind_value_define = " 0.3-3.4m/s (light)";
+                $wind_value_define = " 0.3-3.4m/s (light)";
                 break;
             case 3:
                  $wind_value_define = "3.4-8.0m/s (moderate)";
