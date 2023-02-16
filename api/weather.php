@@ -64,28 +64,28 @@
 
         switch ($wind_value){
             case 1:
-                $wind_value_define = "Below 0.3m/s (calm)";
+                $wind_value_define = "Below 0.3 miles per second (calm)";
                 break;
             case 2:
-                $wind_value_define = " 0.3-3.4m/s (light)";
+                $wind_value_define = " 0.3-3.4 miles per second (light)";
                 break;
             case 3:
-                 $wind_value_define = "3.4-8.0m/s (moderate)";
+                 $wind_value_define = "3.4-8.0 miles per second (moderate)";
                 break;
             case 4:
-                $wind_value_define = " 8.0-10.8m/s (fresh)";
+                $wind_value_define = " 8.0-10.8 miles per second (fresh)";
                 break;
             case 5:
-                $wind_value_define = "10.8-17.2m/s (strong)";
+                $wind_value_define = "10.8-17.2 miles per second (strong)";
                 break;
             case 6:
-                $wind_value_define = "17.2-24.5m/s (gale)";
+                $wind_value_define = "17.2-24.5 miles per second (gale)";
                 break;
             case 7:
-                $wind_value_define = "24.5-32.6m/s (storm)";
+                $wind_value_define = "24.5-32.6 miles per second (storm)";
                 break;
             case 8:
-                $wind_value_define = "Over 32.6m/s (hurricane)";
+                $wind_value_define = "Over 32.6 miles per second (hurricane)";
                 break;
         }
 
