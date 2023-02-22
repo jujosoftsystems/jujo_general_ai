@@ -21,7 +21,7 @@
                 $weather_value_define = "Total cloud cover between 60%-80%";
                 break;
             case "cloudy":
-                $weather_value_define = "Total cloud cover over over 80%";
+                $weather_value_define = "Total cloud cover over 80%";
                 break;
             case "humid":
                 $weather_value_define = "Relative humidity over 90% with total cloud cover less than 60%";
