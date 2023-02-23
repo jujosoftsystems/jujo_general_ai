@@ -98,7 +98,7 @@
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
 
-        // Need to make sure $place_value is a string not int before passing to the first API!
+        // Need to make sure $place_value is a string not int before passing to the first API!  <---- Need to work on this next!!!!
 
         // Call first API and get parameters need it for second API
         $response_1 = file_get_contents('https://geocode.maps.co/search?q='.$place_value);
@@ -106,29 +106,9 @@
         $lat_param = $api_1_result[0]["lat"];
         $lon_param = $api_1_result[0]["lon"];
 
-        // "astro", "civil", "civillight"
         // more info on this API ---> https://github.com/Yeqzids/7timer-issues/wiki/Wiki
         $response_2 = file_get_contents('https://www.7timer.info/bin/civillight.php?lon='.$lon_param.'&lat='.$lat_param.'&ac=0&unit=metric&output=json');
         $api_2_result = json_decode($response_2, true);
-
-        /* Need definitions for 
-           API json return data example:
-           -------------------------------------
-            "weather": "pcloudy",
-                "temp2m": {
-                    "max": 14,
-                    "min": 7
-                },
-                "wind10m_max": 3
-
-        */
-/*
-        foreach ($api_2_result as $index) {
-            $result = $index[2]." ";
-        }
-
-        $result = define_weather($api_2_result["dataseries"][0]["weather"]);
-*/     
 
         // Convert celsuis to fahrenheit!
         $cel_to_fah_max = $api_2_result["dataseries"][0]["temp2m"]["max"] * 1.8 + 32;
