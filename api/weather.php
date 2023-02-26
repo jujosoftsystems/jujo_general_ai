@@ -99,6 +99,12 @@
         $result = ""; // <-- default
 
         // Need to make sure $place_value is a string not int before passing to the first API!  <---- Need to work on this next!!!!
+        
+        
+        if(empty($place_value)){
+            $error_msg = "Sorry place value can't be empty!";
+        }
+
 
         // Call first API and get parameters need it for second API
         $response_1 = file_get_contents('https://geocode.maps.co/search?q='.$place_value);
