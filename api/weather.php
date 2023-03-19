@@ -98,7 +98,7 @@
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
 
-        // Need to make sure $place_value is not composed of or have any numbers on it!
+        // Making sure $place_value is not composed of or have any numbers on it!
         if(preg_match('~[0-9]+~', $place_value)){
             $error_msg = "Sorry place value can't be a number!";
         }
