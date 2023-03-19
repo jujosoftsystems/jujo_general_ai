@@ -25,6 +25,9 @@
             case 5:
                 $result = "If you can't explain it to a six year old, you don't understand it yourself.  -Albert Einstein";
                 break;
+            case 6:
+                $result = "The Hardest Choices Require the Strongest Wills.  -Thanos";
+                break;
             default:
                 $result = "Sorry can't think of any quotes right now!";
         }
