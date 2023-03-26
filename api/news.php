@@ -1,8 +1,6 @@
 <?php
     /*
         News API 
-
-        @RobertC 3/20/2023
     */
 
     // Might use ---> https://saurav.tech/NewsAPI/top-headlines/category/general/us.json
