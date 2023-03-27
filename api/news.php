@@ -3,6 +3,8 @@
         News API 
     */
 
+    $param_1 = $_GET['topic'];
+
     // Might use ---> https://saurav.tech/NewsAPI/top-headlines/category/general/us.json
 
     /*
@@ -17,7 +19,7 @@
     */
 
      // Call external news API
-     $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/general/us.json');
+     $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$param_1.'/us.json');
      $api_1_result = json_decode($response_1, true);
 
      // testing...
