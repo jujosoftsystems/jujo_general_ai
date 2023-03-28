@@ -7,19 +7,32 @@
 
     // Might use ---> https://saurav.tech/NewsAPI/top-headlines/category/general/us.json
 
-    /*
-            Available categories:
-                business
-                entertainment
-                general
-                health
-                science
-                sports
-                technology
-    */
+    // News topics/categories
+    switch ($param_1){
+        case "business":
+            $topic_value_define = "business";
+            break;
+        case "entertainment":
+            $topic_value_define = "entertainment";
+            break;
+        case "health":
+            $topic_value_define = "health";
+            break;
+        case "science":
+            $topic_value_define = "science";
+            break;
+        case "sports":
+            $topic_value_define = "sports";
+            break;
+        case "technology":
+            $topic_value_define = " technology";
+            break;
+        default:
+            $topic_value_define = "general";
+    }
 
      // Call external news API
-     $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$param_1.'/us.json');
+     $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$topic_value_define.'/us.json');
      $api_1_result = json_decode($response_1, true);
 
      // testing...
