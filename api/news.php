@@ -35,8 +35,8 @@
      $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$topic_value_define.'/us.json');
      $api_1_result = json_decode($response_1, true);
 
-     // testing...
-     $result = $api_1_result;
+     // testing... Parseing just one news article!
+     $result = $api_1_result["articles"][3]["title"]." ".$api_1_result["articles"][3]["description"];
 
     // Array for API!
     $news_abilitie_response = array(
