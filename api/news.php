@@ -17,7 +17,7 @@
             break;
         case "health":
             $topic_value_define = "health";
-            break;
+            break; 
         case "science":
             $topic_value_define = "science";
             break;
@@ -35,13 +35,14 @@
      $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$topic_value_define.'/us.json');
      $api_1_result = json_decode($response_1, true);
 
-     // testing... Parseing just one news article!
-     $result = $api_1_result["articles"][3]["title"]." ".$api_1_result["articles"][3]["description"];
+     $result = "Here are 3 top news I found. First one is an article title ".str_replace('-', 'by', $api_1_result["articles"][0]["title"])." ".$api_1_result["articles"][0]["description"].
+                " Second one is an article title ".str_replace('-', 'by', $api_1_result["articles"][1]["title"])." ".$api_1_result["articles"][1]["description"].
+                " Third one is an article title ".str_replace('-', 'by', $api_1_result["articles"][2]["title"])." ".$api_1_result["articles"][2]["description"];
 
     // Array for API!
     $news_abilitie_response = array(
         "api_id"=> "4",
-        "result"=> $result,
+        "result"=>  $result,
         "error"=> $error_msg
     );
 
