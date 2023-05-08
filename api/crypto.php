@@ -12,6 +12,8 @@
 
     */
 
+    $param_1 = $_GET['coin'];
+
     function crypto_abilitie(){
 
         $error_msg = "None all good"; // <-- default
@@ -29,14 +31,18 @@
         $result_array_2 = [];
         for($i = 0; $i<= 100; $i++){
             foreach($api_1_result as $index_1){
-                array_push($result_array_1, "Coin:".$index_1[$i]["name"]."Price:".$index_1[$i]["price_usd"]);
+                if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
+                    array_push($result_array_1, "Coin:".$index_1[$i]["name"]."Price:".$index_1[$i]["price_usd"]);
+                }
             }
         }
         
         $result_array = [];
         for($i = 0; $i<= 100; $i++){
             foreach($api_2_result as $index_2){
-                array_push($result_array_2, "Coin:".$index_2[$i]["name"]."Price:".$index_2[$i]["price_usd"]);
+                if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
+                    array_push($result_array_2, "Coin:".$index_2[$i]["name"]."Price:".$index_2[$i]["price_usd"]);
+                }
             }
         }
 
