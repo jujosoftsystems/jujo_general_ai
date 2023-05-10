@@ -28,7 +28,7 @@
             $topic_value_define = " technology";
             break;
         default:
-            $topic_value_define = "general";
+            $topic_value_define = "general"; // Takes care of blank/null topic variable!
     }
 
      // Call external news API

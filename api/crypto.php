@@ -32,24 +32,23 @@
         for($i = 0; $i<= 100; $i++){
             foreach($api_1_result as $index_1){
                 if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
-                    array_push($result_array_1, "Coin:".$index_1[$i]["name"]."Price:".$index_1[$i]["price_usd"]);
+                    array_push($result_array_1, ["Coin: "=>$index_1[$i]["name"]," Price: "=>$index_1[$i]["price_usd"] ] );
                 }
             }
         }
         
-        $result_array = [];
         for($i = 0; $i<= 100; $i++){
             foreach($api_2_result as $index_2){
                 if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
-                    array_push($result_array_2, "Coin:".$index_2[$i]["name"]."Price:".$index_2[$i]["price_usd"]);
+                    array_push($result_array_2, ["Coin: "=>$index_1[$i]["name"]," Price: "=>$index_1[$i]["price_usd"] ] );
                 }
             }
         }
 
         // Clean array
-        $result_combine = array_merge($result_array_1 , $result_array_2);
+        $result_combine = array_merge($result_array_1, $result_array_2);
         // Final array for result
-        $result = array_unique( $result_combine); // <--- still need to clean  "1": "Coin:Price:", from final array!
+        $result =  $result_combine;
 
         // Array for API!
         $crypto_abilitie_response = array(
