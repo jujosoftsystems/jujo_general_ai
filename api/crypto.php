@@ -14,10 +14,15 @@
 
     $param_1 = $_GET['coin'];
 
-    function crypto_abilitie(){
+    function crypto_abilitie($coin_name_value){
 
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
+
+        // Check for user input errors
+        if(empty($coin_name_value)){      
+            $error_msg = "Sorry input parameters can't be blank or null.";     
+        }
 
         // Call external news API
         $response_1 = file_get_contents('https://api.coinlore.net/api/tickers/?start=0&limit=100');
@@ -63,5 +68,5 @@
 
     }
 
-    crypto_abilitie(); 
+    crypto_abilitie($param_1); 
 ?>
