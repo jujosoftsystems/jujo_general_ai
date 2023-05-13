@@ -34,10 +34,11 @@
         // Combine 2 external APIs to one array for the data we need!
         $result_array_1 = [];
         $result_array_2 = [];
+
         for($i = 0; $i<= 100; $i++){
             foreach($api_1_result as $index_1){
                 if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
-                    array_push($result_array_1, ["Coin: "=>$index_1[$i]["name"]," Price: "=>$index_1[$i]["price_usd"] ] );
+                    array_push($result_array_1, [$index_1[$i]["name"], $index_1[$i]["price_usd"] ] );
                 }
             }
         }
@@ -45,16 +46,21 @@
         for($i = 0; $i<= 100; $i++){
             foreach($api_2_result as $index_2){
                 if(!empty($index_1[$i]["name"]) && !empty($index_1[$i]["price_usd"])){
-                    array_push($result_array_2, ["Coin: "=>$index_1[$i]["name"]," Price: "=>$index_1[$i]["price_usd"] ] );
+                    array_push($result_array_2, [$index_1[$i]["name"], $index_1[$i]["price_usd"] ] );
                 }
             }
         }
 
         // Clean array
         $result_combine = array_merge($result_array_1, $result_array_2);
-        // Final array for result
-        $result =  $result_combine;
 
+        // Final array for result!
+        foreach($result_combine as $index_3){
+            if($index_3[0] === $coin_name_value){   
+                    $result = "The crypto coin in question here (".$index_3[0].") is now $".$index_3[1]." us dollars in value."; 
+            }         
+        }
+    
         // Array for API!
         $crypto_abilitie_response = array(
             "api_id"=> "6",
