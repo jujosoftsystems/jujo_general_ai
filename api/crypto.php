@@ -58,13 +58,17 @@
         foreach($result_combine as $index_3){
             if($index_3[0] === $coin_name_value){   
                     $result = "The crypto coin in question here (".$index_3[0].") is now $".$index_3[1]." us dollars in value."; 
-            }         
+            }   
         }
-    
+
+        if(empty($result)){
+            $result = "Looks like that coin is not part of the top 200 coins which I parse data form or does not exists sorry!";
+        }
+
         // Array for API!
         $crypto_abilitie_response = array(
             "api_id"=> "6",
-            "result"=>  $result,
+            "result"=> $result,
             "error"=> $error_msg
         );
 
