@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JUJOSOFT AI</title>
+  <meta question="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/looks_gui.css">
+</head>
+<body>
+  <div  id="main">
+    <div  id="title">
+      <h1>..:.:JUJOSOFT AI:.:..</h1> 
+    </div>
+    <form method="post" action="submit.php">
+      <label for="question">Enter your question:</label>
+      <input type="text" question="question" id="question">
+      <button type="submit">Submit</button><br><br>
+    <div id="output"></div>
+    </form>
+
+    <div  class="footerDiv">
+      <center>
+        <br>
+          <a href="http://www.jujosoft.com/">© 2023 jujosoft LLC.</a>
+        <br>
+      </center>
+    </div>
+  </div> 
+  <script>
+    const form = document.querySelector('form');
+    const questionInput = document.querySelector('#question');
+	  const outputDiv = document.querySelector('#output');
+    
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const question = questionInput.value;
+      
+      //const response = await fetch('api/findme.php', {
+      const response = await fetch('language_parser/parse_question.php',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ question })
+      });
+      
+      const data = await response.json();
+      
+      console.log(data);
+	    outputDiv.innerHTML = data.result;
+	
+	});
+  </script>
+</body>
+</html>
