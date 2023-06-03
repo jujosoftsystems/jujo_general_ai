@@ -10,7 +10,7 @@
         $question = $data['question'];
         
         // Parse string for key words!
-        $look_for = array("find", "quote", "quotes", "coin");
+        $look_for = array("find", "quote", "quotes", "coin", "weather");
         $words = explode(" ", $question);
        
         // Iterate through each word and check if it matches any of the words to find
@@ -41,7 +41,20 @@
                 echo json_encode($api_parse_result);
             }
             else{
-                echo json_encode(array("result" => "Please tell me what cryptocurrency/coin name you want know what is it's value today. By using coin fallow by its name, For example coin Bitcoin"));
+                echo json_encode(array("result" => "Please tell me what cryptocurrency/coin name you want to know what it's value today. By using coin fallow by its name, For example, coin Bitcoin"));
+            }
+        }
+
+        if($last_word_found == 'weather'){
+            $pattern = "/\b" . preg_quote("weather") . "\b\s+(\w+)/i";
+            if (preg_match($pattern, $question, $matches)){
+                $next_word = $matches[1];   
+                $response = file_get_contents($host_url_param.'/api/weather.php?place='.$next_word.'');
+                $api_parse_result = json_decode($response, true);
+                echo json_encode($api_parse_result);
+            }
+            else{
+                echo json_encode(array("result" => "I can assist you by telling the weather of a place by you using the keyword weather fallow by the place. For example weather Austin TX"));
             }
         }
 
