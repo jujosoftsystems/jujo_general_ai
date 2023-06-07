@@ -25,7 +25,7 @@
             $topic_value_define = "sports";
             break;
         case "technology":
-            $topic_value_define = " technology";
+            $topic_value_define = "technology";
             break;
         default:
             $topic_value_define = "general"; // Takes care of blank/null topic variable!
@@ -35,9 +35,11 @@
      $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$topic_value_define.'/us.json');
      $api_1_result = json_decode($response_1, true);
 
+     $tip = " You can type news fallow by the topic to get topic specific news. For example news sports. The topics available are business, entertainment, health, science, sports, and technology.";
+
      $result = "Here are 3 top news I found. First one is an article title ".str_replace('-', 'by', $api_1_result["articles"][0]["title"])." ".$api_1_result["articles"][0]["description"].
                 " Second one is an article title ".str_replace('-', 'by', $api_1_result["articles"][1]["title"])." ".$api_1_result["articles"][1]["description"].
-                " Third one is an article title ".str_replace('-', 'by', $api_1_result["articles"][2]["title"])." ".$api_1_result["articles"][2]["description"];
+                " Third one is an article title ".str_replace('-', 'by', $api_1_result["articles"][2]["title"])." ".$api_1_result["articles"][2]["description"].$tip;
 
     // Array for API!
     $news_abilitie_response = array(
