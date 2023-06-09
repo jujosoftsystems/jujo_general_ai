@@ -59,9 +59,18 @@
         }
 
         if($last_word_found == 'news'){
-            $response = file_get_contents($host_url_param.'/api/news.php?topic='.$next_word.'');
-            $api_parse_result = json_decode($response, true);
-            echo json_encode($api_parse_result);  
+            $pattern = "/\b" . preg_quote("news") . "\b\s+(\w+)/i";
+            if(preg_match($pattern, $question, $matches)){
+                $next_word = $matches[1];   
+                $response = file_get_contents($host_url_param.'/api/news.php?topic='.$next_word.'');
+                $api_parse_result = json_decode($response, true);
+                echo json_encode($api_parse_result);
+            }
+            else{
+                $response = file_get_contents($host_url_param.'/api/news.php?');
+                $api_parse_result = json_decode($response, true);
+                echo json_encode($api_parse_result);
+            }
         }
 
         // Defualt 
