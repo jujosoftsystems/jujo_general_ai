@@ -30,28 +30,33 @@
   <script>
     const form = document.querySelector('form');
     const questionInput = document.querySelector('#question');
-	  const outputDiv = document.querySelector('#output');
-    
+    const outputDiv = document.querySelector('#output');
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      
+
       const question = questionInput.value;
-      
-      //const response = await fetch('api/findme.php', {
-      const response = await fetch('language_parser/parse_question.php',{
+
+      const response = await fetch('language_parser/parse_question.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ question })
       });
-      
+
       const data = await response.json();
-      
-      console.log(data);
-	    outputDiv.innerHTML = data.result;
-	
-	});
+
+      // Clear previous content in the output div
+      outputDiv.innerHTML = '';
+
+      // Typing effect
+      for(let i = 0; i < data.result.length; i++){
+        setTimeout(() => {
+          outputDiv.innerHTML += data.result[i];
+        }, i * 25); // <-- 25 milliseconds typing speed
+      }
+    });
   </script>
 </body>
 </html>
