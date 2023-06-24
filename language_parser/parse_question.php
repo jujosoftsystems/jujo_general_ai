@@ -36,7 +36,7 @@
             $pattern = "/\b" . preg_quote("coin") . "\b\s+(\w+)/i";
             if(preg_match($pattern, $question, $matches)){
                 $next_word = $matches[1];   
-                $response = file_get_contents($host_url_param.'/api/crypto.php?coin='.$next_word.'');
+                $response = file_get_contents($host_url_param.'/api/crypto.php?coin='.ucfirst($next_word).'');
                 $api_parse_result = json_decode($response, true);
                 echo json_encode($api_parse_result);
             }
