@@ -6,6 +6,7 @@
     $param_1 = $_GET['topic'];
 
     // Might use ---> https://saurav.tech/NewsAPI/top-headlines/category/general/us.json
+    // Will chnage this to use https://newsapi.org API's insted!
 
     // News topics/categories
     switch ($param_1){
