@@ -33,35 +33,33 @@
             $topic_value_define = "general"; // Takes care of blank/null topic variable!
     }
 
-/*
-     // Call external news API
-     $response_1 = file_get_contents('https://saurav.tech/NewsAPI/top-headlines/category/'.$topic_value_define.'/us.json');
-     $api_1_result = json_decode($response_1, true);
+    // Have to use Curl for the NewsApi url API call. file_get_contents not working!
+    $ch = curl_init();
 
-     $tip = " You can type news fallow by the topic to get topic specific news. For example news sports. The topics available are business, entertainment, health, science, sports, and technology.";
+    $url = 'https://newsapi.org/v2/top-headlines?category='.$topic_value_define.'&country=us&apiKey='.$the_api_key;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'MyNewsApp/1.0');
+    $response = curl_exec($ch);
+    curl_close($ch);
 
-     $result = "Here are 3 top news I found. First one is an article title ".str_replace('-', 'by', $api_1_result["articles"][0]["title"])." ".$api_1_result["articles"][0]["description"].
-                " Second one is an article title ".str_replace('-', 'by', $api_1_result["articles"][1]["title"])." ".$api_1_result["articles"][1]["description"].
-                " Third one is an article title ".str_replace('-', 'by', $api_1_result["articles"][2]["title"])." ".$api_1_result["articles"][2]["description"].$tip;
-*/
+    $api_1_result = json_decode($response, true);
 
-    $response_1 = file_get_contents('https://newsapi.org/v2/top-headlines?category='.$topic_value_define.'&country=us&apiKey='.$the_api_key);
-    $api_1_result = json_decode($response_1, true);
+    $tip = " You can type news fallow by the topic to get topic specific news. For example news sports. The topics available are business, entertainment, health, science, sports, and technology.";
 
-    print_r($api_1_result);
-
-/*
+    $result = "Here are 3 top news I found. First one is an article title ".$api_1_result["articles"][0]["title"]." ".$api_1_result["articles"][0]["description"].
+               " Second one is an article title ".$api_1_result["articles"][1]["title"]." ".$api_1_result["articles"][1]["description"].
+               " Third one is an article title ".$api_1_result["articles"][2]["title"]." ".$api_1_result["articles"][2]["description"].$tip;
+   
     // Array for API!
     $news_abilitie_response = array(
         "api_id"=> "4",
-        "result"=> $api_1_result[0],
+        "result"=> $result,
         "error"=> $error_msg
     );
 
     // JSON array data
     header("Content-Type: application/json");
     print(json_encode($news_abilitie_response, JSON_PRETTY_PRINT));
-*/
-
 
 ?>
