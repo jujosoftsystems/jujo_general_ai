@@ -75,7 +75,7 @@
 
         // Defualt 
         if(empty($last_word_found)){
-            echo json_encode(array("result" => "Sorry I can't find anything on my knowledge base to assist you! You can ask for a random quote, to find you, a crypto coin current value or today's news."));
+            echo json_encode(array("result" => "Sorry I can't find anything on my knowledge base to assist you! You can ask for a random quote, to find you, a crypto coin current value or today's news.Type help for more details on what I can do!"));
         }
 
     }
