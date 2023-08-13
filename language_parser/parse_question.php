@@ -10,7 +10,7 @@
         $question = $data['question'];
         
         // Parse string for key words!
-        $look_for = array("find", "quote", "quotes", "coin", "weather", "news");
+        $look_for = array("find", "quote", "quotes", "coin", "weather", "news", "help");
         $words = explode(" ", $question);
        
         // Iterate through each word and check if it matches any of the words to find
@@ -71,6 +71,12 @@
                 $api_parse_result = json_decode($response, true);
                 echo json_encode($api_parse_result);
             }
+        }
+
+        if($last_word_found == 'help'){
+            $response = file_get_contents($host_url_param.'/api/help.php');
+            $api_parse_result = json_decode($response, true);
+            echo json_encode($api_parse_result);
         }
 
         // Defualt 
