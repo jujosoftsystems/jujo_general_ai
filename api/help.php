@@ -5,7 +5,8 @@
     function help_abilitie(){
         
         $error_msg = "None all good"; // <-- default
-        $result = "Testing..."; 
+        $result = "Here are some abilities i have so far. I can give you  random quote by typing into the chat input quote or quotes. If you will like to know the weather 
+                    I can help with that. Type weather fallow by the place. For example: weather Bastrop TX."; 
       
         // Array for API!
         $help_abilitie_response = array(
