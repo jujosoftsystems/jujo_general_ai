@@ -7,7 +7,7 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $data = json_decode(file_get_contents('php://input'), true);
-        $question = $data['question'];
+        $question = strtolower($data['question']); 
         
         // Parse string for key words!
         $look_for = array("find", "quote", "quotes", "coin", "weather", "news", "help");
