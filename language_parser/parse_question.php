@@ -10,7 +10,7 @@
         $question = strtolower($data['question']); 
         
         // Parse string for key words!
-        $look_for = array("find", "quote", "quotes", "coin", "weather", "news", "help");
+        $look_for = array("find", "quote", "quotes", "coin", "weather", "news", "help", "define");
         $words = explode(" ", $question);
        
         // Iterate through each word and check if it matches any of the words to find
@@ -77,6 +77,19 @@
             $response = file_get_contents($host_url_param.'/api/help.php');
             $api_parse_result = json_decode($response, true);
             echo json_encode($api_parse_result);
+        }
+
+        if($last_word_found == 'define'){
+            $pattern = "/\b" . preg_quote("define") . "\b\s+(\w+)/i";
+            if(preg_match($pattern, $question, $matches)){
+                $next_word = $matches[1];   
+                $response = file_get_contents($host_url_param.'/api/define_word.php?word='.ucfirst($next_word).'');
+                $api_parse_result = json_decode($response, true);
+                echo json_encode($api_parse_result);
+            }
+            else{
+                echo json_encode(array("result" => "Testing... define word API!"));
+            }
         }
 
         // Defualt 
