@@ -88,7 +88,7 @@
                 echo json_encode($api_parse_result);
             }
             else{
-                echo json_encode(array("result" => "Testing... define word API!"));
+                echo json_encode(array("result" => "Please make sure to type define then the word you want to see its definition. For example define dog."));
             }
         }
 
