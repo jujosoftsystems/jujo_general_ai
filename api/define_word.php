@@ -10,18 +10,24 @@
         $error_msg = "None all good"; // <-- default
         $result = ""; // <-- default
 
-         // Check for user input errors
-         if(empty($word_value)){      
+        // Check for user input errors
+        if(empty($word_value)){      
             $error_msg = "Sorry input parameters can't be blank or null.";     
         }
 
-         // Work in progress!
+        // Call external API
+        $response_1 = file_get_contents('https://api.dictionaryapi.dev/api/v2/entries/en/'.$word_value);
+        $api_1_result = json_decode($response_1, true);
+    
+        if(!empty($api_1_result )){
+            $result = $api_1_result[0]['meanings'][0]['definitions'][0]['definition']; 
+        }
+        else{
+            $result = "Sorry can't find that definition or word!";
+        }
 
-         // Testing
-         $result = $word_value;
-
-         // Array for API!
-         $define_word_response = array(
+        // Array for API!
+        $define_word_response = array(
             "api_id"=> "7",
             "result"=> $result,
             "error"=> $error_msg
