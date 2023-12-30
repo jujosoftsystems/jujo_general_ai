@@ -15,6 +15,10 @@
             $error_msg = "Sorry input parameters can't be blank or null.";     
         }
 
+        if(is_numeric($word_value)){
+            $error_msg = "Sorry input parameters can't be a number."; 
+        }
+
         // Call external API
         $response_1 = file_get_contents('https://api.dictionaryapi.dev/api/v2/entries/en/'.$word_value);
         $api_1_result = json_decode($response_1, true);
@@ -23,7 +27,7 @@
             $result = $api_1_result[0]['meanings'][0]['definitions'][0]['definition']; 
         }
         else{
-            $result = "Sorry can't find that definition or word!";
+            $result = "Sorry can't find that definition or word! Also make sure not to pass a numeric value.";
         }
 
         // Array for API!
